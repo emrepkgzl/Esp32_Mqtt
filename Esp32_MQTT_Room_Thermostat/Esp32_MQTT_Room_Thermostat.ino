@@ -93,6 +93,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
     ssetTurnOffHour = (payload[8] - 48) * 10 + (payload[9] - 48);
     ssetTurnOffMinute = (payload[11] - 48) * 10 + (payload[12] - 48);
 
+    digitalWrite(2, LOW);
+
     pref.putInt("TURN_ON_HOUR", ssetTurnOnHour);
     pref.putInt("TURN_ON_MIN", ssetTurnOnMinute);
     pref.putInt("TURN_OFF_HOUR", ssetTurnOffHour);
